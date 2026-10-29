@@ -1,0 +1,5 @@
+const WHATSAPP_NUMBER = '5511918687345';
+const dialog=document.querySelector('#contact-dialog');
+document.querySelectorAll('[data-whatsapp]').forEach(button=>button.addEventListener('click',()=>{if(WHATSAPP_NUMBER){window.open('https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent('Olá! Gostaria de saber mais sobre o atendimento com a Dra. Mylene Miranda.'),'_blank','noopener,noreferrer')}else{dialog.showModal()}}));
+document.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
+const menu=document.querySelector('.menu'),nav=document.querySelector('#nav');menu.addEventListener('click',()=>{const expanded=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!expanded));nav.classList.toggle('open',!expanded)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
